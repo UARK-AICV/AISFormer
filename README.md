@@ -9,7 +9,7 @@ Table of Contents
 ## Introduction
 ![alt text](assets/arch.png "AISFormer architecture")
 
-The figure above illustrates our AISFormer architecture. The main implementation of this network can be find [here](detectron2/modeling/roi_heads/aisformer/aisformer.py).
+The figure above illustrates our AISFormer architecture. The main implementation of this network can be foundd [here](detectron2/modeling/roi_heads/aisformer/aisformer.py).
 
 ## Usage
 ### 1. Installation
@@ -47,11 +47,11 @@ could be found at [KINS dataset](https://github.com/qqlu/Amodal-Instance-Segment
 #### D2SA dataset
 The D2S Amodal dataset could be found at [mvtec-d2sa](https://www.mvtec.com/company/research/datasets/mvtec-d2s/).
 
-### COCOA-cls dataset
+#### COCOA-cls dataset
 The COCOA dataset annotation from [here](https://drive.google.com/file/d/1n1vvOaT701dAttxxGeMKQa7k9OD_Ds51/view) (reference from github.com/YihongSun/Bayesian-Amodal)
 The images of COCOA dataset is the train2014 and val2014 of [COCO dataset](http://cocodataset.org/).
 
-### Expected folder structure for each dataset
+#### Expected folder structure for each dataset
 AISFormer support datasets as coco format. It can be as follow (not necessarily the same as it depends on register data code)
 ```
 KINS/
