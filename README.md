@@ -93,4 +93,11 @@ To train, test and run demo, see the example scripts at [`scripts/`](scripts/):
 This code utilize [BCNet](https://github.com/lkeab/BCNet) for dataset mapping with occluder, [VRSP-Net](https://github.com/YutingXiao/Amodal-Segmentation-Based-on-Visible-Region-Segmentation-and-Shape-Prior) for amodal evalutation, and [detectron2](https://github.com/facebookresearch/detectron2) as entire pipeline with Faster RCNN meta arch.
 
 ## Citation
-Available soon!
+```
+@article{tran2022aisformer,
+  title={AISFormer: Amodal Instance Segmentation with Transformer},
+  author={Tran, Minh and Vo, Khoa and Yamazaki, Kashu and Fernandes, Arthur and Kidd, Michael and Le, Ngan},
+  journal={arXiv preprint arXiv:2210.06323},
+  year={2022}
+}
+```
