@@ -86,8 +86,9 @@ Configuration files for training AISFormer on each datasets are available [here]
 To train, test and run demo, see the example scripts at [`scripts/`](scripts/):
 
 ## Trained models
-Available soon!
-
+- [AISFormer R50 on KINS](https://uark-my.sharepoint.com/:u:/g/personal/minht_uark_edu/EVlbF-R4dUpPnypJNggm8foBkGWohOg7L5IhrRg2vNHESQ?e=iq1fnF)
+- AISFormer R50 on D2SA (TBA)
+- AISFormer R50 on COCOA-cls (TBA)
 ## Acknowledgement
 This code utilize [BCNet](https://github.com/lkeab/BCNet) for dataset mapping with occluder, [VRSP-Net](https://github.com/YutingXiao/Amodal-Segmentation-Based-on-Visible-Region-Segmentation-and-Shape-Prior) for amodal evalutation, and [detectron2](https://github.com/facebookresearch/detectron2) as entire pipeline with Faster RCNN meta arch.
 
