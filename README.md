@@ -56,21 +56,21 @@ $PROJECT_DIR/
 ```
 
 ### 2. Data preparation
-#### KINS dataset
+#### 2.1. KINS dataset
 Download the [Images](http://www.cvlibs.net/download.php?file=data_object_image_2.zip)
 from [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d). 
 
 The [Amodal Annotations](https://drive.google.com/drive/folders/1FuXz1Rrv5rrGG4n7KcQHVWKvSyr3Tkyo?usp=sharing)
 could be found at [KINS dataset](https://github.com/qqlu/Amodal-Instance-Segmentation-through-KINS-Dataset)
 
-#### D2SA dataset
+#### 2.2. D2SA dataset
 The D2S Amodal dataset could be found at [mvtec-d2sa](https://www.mvtec.com/company/research/datasets/mvtec-d2s/).
 
-#### COCOA-cls dataset
+#### 2.3. COCOA-cls dataset
 The COCOA dataset annotation from [here](https://drive.google.com/file/d/1n1vvOaT701dAttxxGeMKQa7k9OD_Ds51/view) (reference from github.com/YihongSun/Bayesian-Amodal)
 The images of COCOA dataset is the train2014 and val2014 of [COCO dataset](http://cocodataset.org/).
 
-#### Expected folder structure for each dataset
+#### 2.4. Expected folder structure for each dataset
 AISFormer support datasets as coco format. It can be as follow (not necessarily the same as it depends on register data code)
 ```
 $PROJECT_DIR/
@@ -85,9 +85,11 @@ $PROJECT_DIR/
 |------------- train.json
 |------------- test.json
 |------- D2SA/
+|...
 ```
 Then, See [here](detectron2/data/datasets/builtin.py) for more details on data registration
 
+#### 2.5. Generate occluder mask annotation
 After registering, run the preprocessing scripts to generate occluder mask annotation, for example:
 ```
 python -m detectron2.data.datasets.process_data_amodal \
@@ -110,6 +112,7 @@ $PROJECT_DIR/
 |------------- train_amodal.json
 |------------- test.json
 |------- D2SA/
+|...
 ```
 
 ### 3. Training, Testing and Demo
