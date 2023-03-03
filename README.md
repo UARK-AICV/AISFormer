@@ -13,6 +13,15 @@ The figure above illustrates our AISFormer architecture. The main implementation
 
 ## Usage
 ### 1. Installation
+#### 1.1. Set up project directory:
+- Create a parent project folder
+```
+mkdir ~/AmodalSeg
+export PROJECT_DIR=~/AmodalSeg 
+```
+
+#### 1.2. Install python environment
+- Conda, Pytorch and other dependencies
 ```
 conda create -n aisformer python=3.8 -y
 source activate aisformer 
@@ -22,20 +31,30 @@ pip install ninja yacs cython matplotlib tqdm
 pip install opencv-python==4.4.0.40
 pip install scikit-image
 pip install timm==0.4.12
-
-# coco api
-git clone https://github.com/cocodataset/cocoapi.git
-cd cocoapi/PythonAPI
-python setup.py build_ext install
-
-
-git clone https://github.com/UARK-AICV/AISFormer
-cd AISFormer/
-python3 setup.py build develop
-# optional, just in case
 pip install setuptools==59.5.0
 pip install torch-dct
 ```
+- Install cocoapi
+```
+cd $PROJECT_DIR/
+git clone https://github.com/cocodataset/cocoapi.git
+cd cocoapi/PythonAPI
+python setup.py build_ext install
+```
+- Install AISFormer
+```
+cd $PROJECT_DIR/
+git clone https://github.com/UARK-AICV/AISFormer
+cd AISFormer/
+python3 setup.py build develop
+```
+- Expected Directory Structure
+```
+$PROJECT_DIR/
+|-- AISFormer/
+|-- cocoapi/
+```
+
 ### 2. Data preparation
 #### KINS dataset
 Download the [Images](http://www.cvlibs.net/download.php?file=data_object_image_2.zip)
@@ -54,12 +73,18 @@ The images of COCOA dataset is the train2014 and val2014 of [COCO dataset](http:
 #### Expected folder structure for each dataset
 AISFormer support datasets as coco format. It can be as follow (not necessarily the same as it depends on register data code)
 ```
-KINS/
-|--train_imgs
-|--test_imgs/
-|--annotations/
-|----train.json
-|----test.json
+$PROJECT_DIR/
+|-- AISFormer/
+|-- cocoapi/
+|-- data/
+|---- datasets/
+|------- KINS/
+|---------- train_imgs/
+|---------- test_imgs/
+|---------- annotations/
+|------------- train.json
+|------------- test.json
+|------- D2SA/
 ```
 Then, See [here](detectron2/data/datasets/builtin.py) for more details on data registration
 
@@ -72,13 +97,19 @@ python -m detectron2.data.datasets.process_data_amodal \
 ```
 the expected new annotation can be as follow:
 ```
-KINS/
-|--train_imgs
-|--test_imgs/
-|--annotations/
-|----train.json
-|----train_amodal.json
-|----test.json
+$PROJECT_DIR/
+|-- AISFormer/
+|-- cocoapi/
+|-- data/
+|---- datasets/
+|------- KINS/
+|---------- train_imgs/
+|---------- test_imgs/
+|---------- annotations/
+|------------- train.json
+|------------- train_amodal.json
+|------------- test.json
+|------- D2SA/
 ```
 
 ### 3. Training, Testing and Demo
