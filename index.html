@@ -76,8 +76,8 @@
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>University of Arkansas</span>;
-              <span class="author-block"><sup>2</sup>Cobb-Vantress, Inc</span>;
+              <span class="author-block"><sup>1</sup>University of Arkansas</span>&nbsp;&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Cobb-Vantress, Inc</span>
               <br>
               <span class="author-block">BMVC 2022</span>
             </div>
@@ -115,22 +115,37 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/aisformer/AIS_explain/AIS_explain-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          An explanation of different mask instances in Amodal Instance Segmentation (AIS). Given a region of interest (ROI) extracted by an object detector, AIS aims to extract both visible and invisible mask instances including occluder, visible, amodal, and invisible.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/aisformer/ISvsAIS/ISvsAIS-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          A comparison between Instance Segmentation (IS) and Amodal Instance Segmentation (AIS). Given an image with ROI (a), IS aims to extract the visible mask instance (b) whereas AIS aims to extract both the visible mask and occluded parts (c).
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/aisformer/aistr-Flowchart/aistr-Flowchart-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          The overall flowchart of our proposed AISFormer. AISFormer consists of four modules corresponding to (i) feature encoding: after obtaining the region of interest (ROI) feature from the backbone and ROIAlign algorithm, CNN-based layers and a transformer encoder are applied to learn both short-range and long-range features of the given ROI.(ii) mask transformer decoding: generate the occluder, visible, and amodal mask query embeddings by a transformer decoder (iii) invisible mask embedding to model the coherence between the amodal and visible masks by computing the invisible mask embedding, and (iv) segmentation to estimate output masks including occluder, visible, amodal and invisible.
+       </h2>
+     </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End teaser video -->
+<!-- End image carousel -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -140,7 +155,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Amodal Instance Segmentation (AIS) aims to segment the region of both visible and possible occluded parts of an object instance. While Mask R-CNN-based AIS approaches have shown promising results, they are unable to model high-level features coherence due to the limited receptive field. The most recent transformer-based models show impressive performance on vision tasks, even better than Convolution Neural Networks (CNN). In this work, we present AISFormer, an AIS framework, with a Transformer-based mask head. AISFormer explicitly models the complex coherence between occluder, visible, amodal, and invisible masks within an object's regions of interest by treating them as learnable queries. Specifically, AISFormer contains four modules: (i) feature encoding: extract ROI and learn both short-range and long-range visual features. (ii) mask transformer decoding: generate the occluder, visible, and amodal mask query embeddings by a transformer decoder (iii) invisible mask embedding:  model the coherence between the amodal and visible masks, and (iv) mask predicting: estimate output masks including occluder, visible, amodal and invisible. We conduct extensive experiments and ablation studies on three challenging benchmarks i.e. KINS, D2SA, and COCOA-cls to evaluate the effectiveness of AISFormer. 
           </p>
         </div>
       </div>
@@ -150,11 +165,45 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Network -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Network</h2>
+        <img src="static/images/aisformer/aistr-Encoder-Decoder/aistr-Encoder-Decoder-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Illustration network architecture of AISFormer. (a): mask transformer encoder is designed as one block of self-attention, (b): mask transformer decoder is designed as a combination of one block of self-attention and one block of cross-attention and (c): invisible embedding is designed as an MLP with two hidden layers. 
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/aisformer/aistr-Encoder-Decoder/aistr-Encoder-Decoder-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Illustration network architecture of AISFormer. (a): mask transformer encoder is designed as one block of self-attention, (b): mask transformer decoder is designed as a combination of one block of self-attention and one block of cross-attention and (c): invisible embedding is designed as an MLP with two hidden layers. 
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section> -->
+
+
+
+<!-- Qualitative Results -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
+      <h2 class="title is-3">Qualitative Results</h2>
        <div class="item">
         <!-- Your image here -->
         <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
@@ -193,49 +242,46 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
+    <div class="container"> -->
       <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+      <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
-          <div class="publication-video">
+          <div class="publication-video"> -->
             <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
             <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
@@ -243,7 +289,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
 
@@ -252,7 +298,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -262,7 +308,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -270,7 +316,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@article{tran2022aisformer,
+        title={AISFormer: Amodal Instance Segmentation with Transformer},
+        author={Tran, Minh and Vo, Khoa and Yamazaki, Kashu and Fernandes, Arthur and Kidd, Michael and Le, Ngan},
+        journal={arXiv preprint arXiv:2210.06323},
+        year={2022}
+      }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
