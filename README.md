@@ -1,137 +1,48 @@
-# Amodal Instance Segmentation with Transformer
-Table of Contents
-* [Introduction](#introduction)
-* [Usage](#usage)
-* [Trained models](#trained-models)
-* [Acknowledgement](#acknowledgement)
-* [Citation](#citation)
+# Academic Project Page Template
+This is an academic paper project page template.
 
-## Introduction
-![alt text](assets/arch.png "AISFormer architecture")
 
-The figure above illustrates our AISFormer architecture. The main implementation of this network can be foundd [here](detectron2/modeling/roi_heads/aisformer/aisformer.py).
+Example project pages built using this template are:
+- https://vision.huji.ac.il/spectral_detuning/
+- https://vision.huji.ac.il/podd/
+- https://dreamix-video-editing.github.io
+- https://vision.huji.ac.il/conffusion/
+- https://vision.huji.ac.il/3d_ads/
+- https://vision.huji.ac.il/ssrl_ad/
+- https://vision.huji.ac.il/deepsim/
 
-## Usage
-### 1. Installation
-#### 1.1. Set up project directory:
-- Create a parent project folder
-```
-mkdir ~/AmodalSeg
-export PROJECT_DIR=~/AmodalSeg 
-```
 
-#### 1.2. Install python environment
-- Conda, Pytorch and other dependencies
-```
-conda create -n aisformer python=3.8 -y
-source activate aisformer 
 
-conda install pytorch==1.10.0 torchvision==0.11.0 cudatoolkit=11.3 -c pytorch
-pip install ninja yacs cython matplotlib tqdm
-pip install opencv-python==4.4.0.40
-pip install scikit-image
-pip install timm==0.4.12
-pip install setuptools==59.5.0
-pip install torch-dct
-```
-- Install cocoapi
-```
-cd $PROJECT_DIR/
-git clone https://github.com/cocodataset/cocoapi.git
-cd cocoapi/PythonAPI
-python setup.py build_ext install
-```
-- Install AISFormer
-```
-cd $PROJECT_DIR/
-git clone https://github.com/UARK-AICV/AISFormer
-cd AISFormer/
-python3 setup.py build develop
-```
-- Expected Directory Structure
-```
-$PROJECT_DIR/
-|-- AISFormer/
-|-- cocoapi/
-```
+## Start using the template
+To start using the template click on `Use this Template`.
 
-### 2. Data preparation
-#### 2.1. KINS dataset
-Download the [Images](http://www.cvlibs.net/download.php?file=data_object_image_2.zip)
-from [KITTI dataset](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=2d). 
+The template uses html for controlling the content and css for controlling the style. 
+To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
 
-The [Amodal Annotations](https://drive.google.com/drive/folders/1FuXz1Rrv5rrGG4n7KcQHVWKvSyr3Tkyo?usp=sharing)
-could be found at [KINS dataset](https://github.com/qqlu/Amodal-Instance-Segmentation-through-KINS-Dataset)
+**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
 
-#### 2.2. D2SA dataset
-The D2S Amodal dataset could be found at [mvtec-d2sa](https://www.mvtec.com/company/research/datasets/mvtec-d2s/).
+## Components
+- Teaser video
+- Images Carousel
+- Youtube embedding
+- Video Carousel
+- PDF Poster
+- Bibtex citation
 
-#### 2.3. COCOA-cls dataset
-The COCOA dataset annotation from [here](https://drive.google.com/file/d/1n1vvOaT701dAttxxGeMKQa7k9OD_Ds51/view) (reference from github.com/YihongSun/Bayesian-Amodal)
-The images of COCOA dataset is the train2014 and val2014 of [COCO dataset](http://cocodataset.org/).
+## Tips:
+- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
+- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
+(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
+- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
+- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
+- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
+- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
+- This project page can also be made into a github pages website.
+- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
+- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
 
-#### 2.4. Expected folder structure for each dataset
-AISFormer support datasets as coco format. It can be as follow (not necessarily the same as it depends on register data code)
-```
-$PROJECT_DIR/
-|-- AISFormer/
-|-- cocoapi/
-|-- data/
-|---- datasets/
-|------- KINS/
-|---------- train_imgs/
-|---------- test_imgs/
-|---------- annotations/
-|------------- train.json
-|------------- test.json
-|------- D2SA/
-|...
-```
-Then, See [here](detectron2/data/datasets/builtin.py) for more details on data registration
+## Acknowledgments
+Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
 
-#### 2.5. Generate occluder mask annotation
-After registering, run the preprocessing scripts to generate occluder mask annotation, for example:
-```
-python -m detectron2.data.datasets.process_data_amodal \
-   /path/to/KINS/train.json \
-   /path/to/KINS/train_imgs \
-   kins_dataset_train
-```
-the expected new annotation can be as follow:
-```
-$PROJECT_DIR/
-|-- AISFormer/
-|-- cocoapi/
-|-- data/
-|---- datasets/
-|------- KINS/
-|---------- train_imgs/
-|---------- test_imgs/
-|---------- annotations/
-|------------- train.json
-|------------- train_amodal.json
-|------------- test.json
-|------- D2SA/
-|...
-```
-
-### 3. Training, Testing and Demo
-Configuration files for training AISFormer on each datasets are available [here](configs/).
-To train, test and run demo, see the example scripts at [`scripts/`](scripts/):
-
-## Trained models
-- [AISFormer R50 on KINS](https://uark-my.sharepoint.com/:u:/g/personal/minht_uark_edu/EVlbF-R4dUpPnypJNggm8foBkGWohOg7L5IhrRg2vNHESQ?e=iq1fnF)
-- AISFormer R50 on D2SA (TBA)
-- AISFormer R50 on COCOA-cls (TBA)
-## Acknowledgement
-This code utilize [BCNet](https://github.com/lkeab/BCNet) for dataset mapping with occluder, [VRSP-Net](https://github.com/YutingXiao/Amodal-Segmentation-Based-on-Visible-Region-Segmentation-and-Shape-Prior) for amodal evalutation, and [detectron2](https://github.com/facebookresearch/detectron2) as entire pipeline with Faster RCNN meta arch.
-
-## Citation
-```
-@article{tran2022aisformer,
-  title={AISFormer: Amodal Instance Segmentation with Transformer},
-  author={Tran, Minh and Vo, Khoa and Yamazaki, Kashu and Fernandes, Arthur and Kidd, Michael and Le, Ngan},
-  journal={arXiv preprint arXiv:2210.06323},
-  year={2022}
-}
-```
+## Website License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
