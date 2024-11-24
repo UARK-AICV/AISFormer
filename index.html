@@ -155,7 +155,7 @@
       <div class="column is-four-fifths">
         <img src="static/images/aisformer/aistr-Flowchart/aistr-Flowchart-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          The overall flowchart of our proposed AISFormer. AISFormer consists of four modules corresponding to (i) feature encoding: after obtaining the region of interest (ROI) feature from the backbone and ROIAlign algorithm, CNN-based layers and a transformer encoder are applied to learn both short-range and long-range features of the given ROI.(ii) mask transformer decoding: generate the occluder, visible, and amodal mask query embeddings by a transformer decoder (iii) invisible mask embedding to model the coherence between the amodal and visible masks by computing the invisible mask embedding, and (iv) segmentation to estimate output masks including occluder, visible, amodal and invisible.
+          The overall flowchart of our proposed AISFormer, integrating feature encoding, mask decoding, invisible mask embedding, and segmentation to generate occluder, visible, amodal, and invisible masks.
        </h2>
       </div>
     </div>
@@ -219,11 +219,11 @@
 </section> -->
 
 <!-- Network -->
-<section class="section hero is-small">
+<section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Network Architecture</h2>
+        <h2 class="title is-3">AISFormer Mask Head</h2>
         <img src="static/images/aisformer/aistr-Encoder-Decoder/aistr-Encoder-Decoder-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           Illustration network architecture of AISFormer. (a): mask transformer encoder is designed as one block of self-attention, (b): mask transformer decoder is designed as a combination of one block of self-attention and one block of cross-attention and (c): invisible embedding is designed as an MLP with two hidden layers. 
@@ -235,7 +235,7 @@
 
 
 <!-- Qualitative Results -->
-<section class="hero is-light">
+<section class="hero is-small">
   <div class="hero-body has-text-centered">
     <h2 class="title is-3">Qualitative Results</h2>
     <div class="container">
