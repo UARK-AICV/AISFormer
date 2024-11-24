@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta name="description" content="AISFormer">
+  <meta property="og:title" content="AISFormer"/>
+  <meta property="og:description" content="AISFormer"/>
+  <meta property="og:url" content="https://uark-aicv.github.io/AISFormer"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <meta name="twitter:title" content="AISFormer">
+  <meta name="twitter:description" content="AISFormer">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:image" content="">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="keywords" content="AISFormer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -116,27 +116,27 @@
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
+       <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/aisformer/AIS_explain/AIS_explain-1.png" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/aisformer/AIS_explain/AIS_explain-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           An explanation of different mask instances in Amodal Instance Segmentation (AIS). Given a region of interest (ROI) extracted by an object detector, AIS aims to extract both visible and invisible mask instances including occluder, visible, amodal, and invisible.
         </h2>
       </div>
-      <div class="item">
+      <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/aisformer/ISvsAIS/ISvsAIS-1.png" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/aisformer/ISvsAIS/ISvsAIS-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           A comparison between Instance Segmentation (IS) and Amodal Instance Segmentation (AIS). Given an image with ROI (a), IS aims to extract the visible mask instance (b) whereas AIS aims to extract both the visible mask and occluded parts (c).
         </h2>
       </div>
-      <div class="item">
+      <div class="item"> -->
         <!-- Your image here -->
-        <img src="static/images/aisformer/aistr-Flowchart/aistr-Flowchart-1.png" alt="MY ALT TEXT"/>
+        <!-- <img src="static/images/aisformer/aistr-Flowchart/aistr-Flowchart-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           The overall flowchart of our proposed AISFormer. AISFormer consists of four modules corresponding to (i) feature encoding: after obtaining the region of interest (ROI) feature from the backbone and ROIAlign algorithm, CNN-based layers and a transformer encoder are applied to learn both short-range and long-range features of the given ROI.(ii) mask transformer decoding: generate the occluder, visible, and amodal mask query embeddings by a transformer decoder (iii) invisible mask embedding to model the coherence between the amodal and visible masks by computing the invisible mask embedding, and (iv) segmentation to estimate output masks including occluder, visible, amodal and invisible.
        </h2>
@@ -144,8 +144,25 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->
 <!-- End image carousel -->
+
+
+<!-- Network -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="static/images/aisformer/aistr-Flowchart/aistr-Flowchart-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          The overall flowchart of our proposed AISFormer. AISFormer consists of four modules corresponding to (i) feature encoding: after obtaining the region of interest (ROI) feature from the backbone and ROIAlign algorithm, CNN-based layers and a transformer encoder are applied to learn both short-range and long-range features of the given ROI.(ii) mask transformer decoding: generate the occluder, visible, and amodal mask query embeddings by a transformer decoder (iii) invisible mask embedding to model the coherence between the amodal and visible masks by computing the invisible mask embedding, and (iv) segmentation to estimate output masks including occluder, visible, amodal and invisible.
+       </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -165,15 +182,20 @@
 <!-- End paper abstract -->
 
 
-<!-- Network -->
+
+
 <section class="section hero is-small">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Network Architecture</h2>
-        <img src="static/images/aisformer/aistr-Encoder-Decoder/aistr-Encoder-Decoder-1.png" alt="MY ALT TEXT"/>
+        <h2 class="title is-3">Amodal Instance Segmentation (AIS)</h2>
+        <img src="static/images/aisformer/AIS_explain/AIS_explain-1.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Illustration network architecture of AISFormer. (a): mask transformer encoder is designed as one block of self-attention, (b): mask transformer decoder is designed as a combination of one block of self-attention and one block of cross-attention and (c): invisible embedding is designed as an MLP with two hidden layers. 
+          An explanation of different mask instances in Amodal Instance Segmentation (AIS). Given a region of interest (ROI) extracted by an object detector, AIS aims to extract both visible and invisible mask instances including occluder, visible, amodal, and invisible.
+        </h2>
+        <img src="static/images/aisformer/ISvsAIS/ISvsAIS-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          A comparison between Instance Segmentation (IS) and Amodal Instance Segmentation (AIS). Given an image with ROI (a), IS aims to extract the visible mask instance (b) whereas AIS aims to extract both the visible mask and occluded parts (c).
         </h2>
       </div>
     </div>
@@ -196,6 +218,20 @@
 </div>
 </section> -->
 
+<!-- Network -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Network Architecture</h2>
+        <img src="static/images/aisformer/aistr-Encoder-Decoder/aistr-Encoder-Decoder-1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Illustration network architecture of AISFormer. (a): mask transformer encoder is designed as one block of self-attention, (b): mask transformer decoder is designed as a combination of one block of self-attention and one block of cross-attention and (c): invisible embedding is designed as an MLP with two hidden layers. 
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Qualitative Results -->
@@ -225,13 +261,12 @@
           Qualitative Results on COCOA dataset.
        </h2>
      </div>
-     <div class="item">
-      <!-- Your image here -->
+     <!-- <div class="item">
       <img src="static/images/aisformer/AttnVis/AttnVis-1.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Attention map visualizations indicating the cross attention between our learnable queries and the corresponding region of interest.
       </h2>
-    </div>
+    </div> -->
   </div>
 </div>
 </div>
